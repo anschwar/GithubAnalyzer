@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+
+    <!-- intermediate result - search step -->
+
+    <xs:element name="repositorySearchResult">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" minOccurs="0" ref="repositorySearchResultEntry"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="repositorySearchResultEntry">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="position"/>
+                <xs:element ref="repositoryName"/>
+                <xs:element ref="fullName"/>
+                <xs:element ref="htmlURL"/>
+                <xs:element ref="created"/>
+                <xs:element ref="size"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="position" type="xs:long"/>
+    <xs:element name="repositoryName" type="xs:string"/>
+    <xs:element name="fullName" type="xs:string"/>
+    <xs:element name="htmlURL" type="xs:string"/>
+    <xs:element name="created" type="xs:string"/>
+    <xs:element name="size" type="xs:int"/>
+
+    <!-- result of the code search -->
+
+    <xs:element name="codeSearchResult">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="codeSearchResultEntry" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="codeSearchResultEntry">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="position"/>
+                <xs:element ref="repositoryName"/>
+                <xs:element ref="occurrences" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="occurrences">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="className"/>
+                <xs:element ref="textMatches"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="textMatches">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="textMatch" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="className" type="xs:string"/>
+    <xs:element name="textMatch" type="xs:string"/>
+
+    <!-- Aggregation result -->
+
+    <xs:element name="aggregationResult">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="aggregationResultEntry" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="aggregationResultEntry">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="repositoryName"/>
+                <xs:element ref="features"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="features">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="feature" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="feature">
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="xs:string">
+                    <xs:attribute name="count" type="xs:int"/>
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>

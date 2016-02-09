@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<aggregationResult>
+    <aggregationResultEntry>
+        <repositoryName>ALL</repositoryName>
+        <features>
+            <feature count="7387">akka.actor.Actor</feature>
+            <feature count="6470">scala.concurrent.Future</feature>
+            <feature count="3419">Synchronized</feature>
+            <feature count="693">scala.concurrent.Promise</feature>
+            <feature count="544">java.util.concurrent.locks</feature>
+            <feature count="489">java.util.concurrent.Future</feature>
+            <feature count="301">Semaphore</feature>
+            <feature count="193">scala.concurrent.stm</feature>
+            <feature count="90">scala.concurrent.Lock</feature>
+        </features>
+    </aggregationResultEntry>
+</aggregationResult>
